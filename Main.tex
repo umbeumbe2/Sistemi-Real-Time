@@ -1,0 +1,64 @@
+\documentclass[a4paper, openany]{book}
+\usepackage{blindtext}
+\usepackage[a4paper, total={6in, 8in}, margin=0.5in]{geometry}
+\usepackage[center]{titlesec}
+\usepackage[italian]{babel}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{manyfoot}
+\usepackage{mathtools, nccmath}
+\usepackage{interval}
+\usepackage{colortbl}
+
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.9}
+
+% We will externalize the figures
+
+
+\DeclareNewFootnote{R}[roman]
+\renewcommand{\footnoterule}
+    {\noindent\smash{\rule[3pt]{\textwidth}{0.4pt}}}
+
+
+\theoremstyle{remark}
+\swapnumbers
+
+
+\newtheorem*{Esercizio1}{\bfseries Esercizio RM 
+e priority inheritance con Liu e Layland}
+
+\newtheorem*{Esercizio2}{\bfseries Esercizio RM
+ e priority inheritance con Liu e Layland}
+
+\newtheorem*{Esercizio3}{\bfseries Esercizio RM
+ e priority inheritance con Liu e Layland}
+
+\newtheorem*{Esercizio4}{\bfseries Esercizio RM
+ e priority inheritance con Liu e Layland}
+
+\newtheorem*{Esercizio5}{\bfseries Esercizio RM
+ e priority inheritance con Liu e Layland}
+
+
+
+%Per non usare /noindent
+\setlength\parindent{0pt}
+
+
+
+
+\title{Sistemi Real Time}
+\author{Ubaldo Vitiello}
+\begin{document}
+\maketitle
+\linespread{1.3}
+
+\large
+
+\input{Chapters/Capitolo1.tex}
+
+\end{document}

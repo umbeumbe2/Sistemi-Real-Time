@@ -86,7 +86,7 @@ alla priorità di \(J_{2}\), cioè i semafori \(S_{2}\) e \(S_{4}\):
 
 
 
-\begin{table}[!h]
+\begin{table}[H]
 \centering
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
@@ -108,7 +108,7 @@ $J_3$ & 10 & 135 & 1 & 3 & 0 & 5 \\
 \end{table}
 
 
-\begin{table}[!h]
+\begin{table}[H]
 \centering
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
@@ -136,7 +136,7 @@ $J_3$ & 10 & 135 & 1 & \cellcolor{blue!20}3 & 0 & \cellcolor{blue!20}5 \\
 Ora selezioniamo di questi semafori solo le righe sotto la riga di \(J_{2}\):
 
 
-\begin{table}[!h]
+\begin{table}[H]
 \centering
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
@@ -323,7 +323,7 @@ Ora andiamo a selezionare di questi semafori solo le
 righe sono la riga di \(J_{2}\):
 
 
-\begin{table}[!h]
+\begin{table}[H]
 \centering
 \caption{Task ordinati per priorità}
 \begin{tabular}{|c|c|c|c|c|c|c|c|}
@@ -351,7 +351,7 @@ a fare il massimo solo tra gli elementi delle colonne
 dei semafori selezionati, cioè \(S_{1}\) e \(S_{4}\):
 
 
-\begin{table}[!h]
+\begin{table}[H]
 \centering
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 \hline
@@ -387,7 +387,7 @@ considerare come prima tutti i semafori per cui si ha
  consideriamo solo le righe che stanno sotto \(J_{2}\):
 
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{tabular}{|c|c|c|c|c|c|c|c|}
 \hline
@@ -413,7 +413,7 @@ andiamo a fare il massimo tra gli elementi del semaforo
 (aggiungiamo una riga per fare vedere i massimi):
 
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{tabular}{|c|c|c|c|c|c|c|c|}
 \hline
@@ -454,14 +454,14 @@ Dato l'insieme di task in tabella, in cui,
 per ogni task si riporta la richiesta
  di utilizzo massima di 4 risorse R1, R2, R3, ed 
  R4 disponibili in un massimo di 4, 2, 3 e 1 unità, 
- si calcoli il ceiling C(m) per tutte e tre le risorse, 
+ si calcoli il ceiling \(C_{R}(n_{R})\) per tutte e tre le risorse, 
  al variare del numero di risorse disponibili. 
  Nel caso in cui siano correttamente disponibili 3
   unità di R1, 1 unità di R2, 0 unità di R3 e 1 
-  unità di R4. Quale sarà il valore assunto dal 
-  ceiling del sistema 
+  unità di R4, quale sarà il valore assunto dal 
+  ceiling del sistema \(\pi_{S}\)?
 
-  \begin{table}[!h]
+  \begin{table}[H]
 \centering
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
@@ -479,6 +479,113 @@ $J_4$ & 80 & 1 & 2 & 2 & 0 \\
 \caption{Richieste di task e disponibilità di risorse}
 \end{table}
 
+Odiniamo i task in ordine di priorità:
+
+  \begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+& $D_i$ & $\mu_{R1}$ & $\mu_{R2}$ & $\mu_{R3}$ & $\mu_{R4}$ \\
+\hline
+$J_2$ & 10 & 3 & 1 & 0 & 0 \\
+\hline
+$J_1$ & 35 & 4 & 1 & 0 & 1 \\
+\hline
+$J_4$ & 80 & 1 & 2 & 2 & 0 \\
+\hline
+$J_3$ & 140 & 2 & 0 & 3 & 1 \\
+
+\hline
+\end{tabular}
+\caption{Task ordinati per priorità}
+\end{table}
+
+
+Assegniamo i livelli di preemption ai task in base alla loro priorità:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+& $D_i$ & \(\pi_{i}\) & $\mu_{R1}$ & $\mu_{R2}$ & $\mu_{R3}$ & $\mu_{R4}$ \\
+\hline
+$J_2$ & 10 & 4 & 3 & 1 & 0 & 0 \\
+\hline
+$J_1$ & 35 & 3 & 4 & 1 & 0 & 1 \\
+\hline
+$J_4$ & 80 & 2 & 1 & 2 & 2 & 0 \\
+\hline
+$J_3$ & 140 & 1 & 2 & 0 & 3 & 1 \\
+
+\hline
+\end{tabular}
+\caption{Task ordinati per priorità}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\(R_{i}\) & \(U_{i}\) \\
+\hline
+\(R_{1}\) & 4 \\
+\hline
+\(R_{2}\) & 2 \\
+\hline
+\(R_{3}\) & 3 \\
+\hline
+\(R_{4}\) & 1 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+Costruiamo ora la tabella dei ceiling delle risorse:
+
+\begin{table}[H]
+\centering  
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+& 4 & 3& 2 & 1 & 0\\
+\hline
+$R_1$ & 0 & 3 & 4 & 4 & 4\\
+\hline
+$R_2$ & - & - & 0 & 2 & 4\\
+\hline
+$R_3$ & - & 0 & 1 & 2 & 2\\
+\hline
+$R_4$ & - & - & - & 0 &  3\\
+\hline
+\end{tabular}
+\caption{Ceiling delle risorse}
+\end{table}
+
+Il ceiling di sistema \(\pi_{S}\) quando si hanno 3 unità di R1, 1 unità di R2,
+0 unità di R3 e 1 unità di R4 è dato da:
+\[\pi_{S} = \max \{ \textcolor{red}{C_{R1}(3)}, 
+\textcolor{blue}{C_{R2}(1)}, \textcolor{green}{C_{R3}(0)}, 
+\textcolor{violet}{ C_{R4}(1)} \} = \max \{
+\textcolor{red}{3}, \textcolor{blue}{2}, \textcolor{green}{2}, \textcolor{violet}{0}\} = 4 \]
+
+
+\begin{table}[H]
+\centering  
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+& 4 & 3& 2 & 1 & 0\\
+\hline
+$R_1$ & 0 & \textcolor{red}{3} & 4 & 4 & 4\\
+\hline
+$R_2$ & - & - & 0 & \textcolor{blue}{2} & 4\\
+\hline
+$R_3$ & - & 0 & 1 & 2 & \textcolor{green}{2}\\
+\hline
+$R_4$ & - & - & - & \textcolor{violet}{0} &  3\\
+\hline
+\end{tabular}
+\caption{Ceiling delle risorse}
+\end{table}
 \end{Esercizio3}
 
 
@@ -492,7 +599,7 @@ e Stack Resource Policy (SRP) con il test di Liu e Layland, assumendo che i task
 con periodo minore abbiano maggior livello di preemption. I tempi di bloccaggio 
 possono essere calcolati con il metodo che si adotta per il priority ceiling.
 
-\begin{table}[!h]
+\begin{table}[H]
 \centering
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
@@ -528,7 +635,7 @@ dei task adottando il metodo del \textit{processor demand criterion}. Il calcolo
 tempi di bloccaggio può essere fatto con lo stesso metodo che si utilizza per il 
 protocollo di priority ceiling.
 
-\begin{table}[!h]
+\begin{table}[H]
 \centering
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
@@ -552,7 +659,7 @@ $\tau_4$ & 1 & 7 & 8 & 1 & 1 \\
 
 \begin{Esercizio6}
 
-\begin{table}[!h]
+\begin{table}[H]
 \centering
 \caption{Dati dei task (frequenza di attivazione e tempo di calcolo)}
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -594,7 +701,7 @@ rappresentando graficamente la domanda di calcolo nell'iperperiodo
 al variare del tempo $L$, e verificando che essa sia sempre inferiore 
 alla funzione identità $g(L)=L$.
 
-\begin{table}[!h]
+\begin{table}[H]
 \centering
 \caption{Dati dei task}
 \begin{tabular}{|c|c|c|c|}
@@ -666,6 +773,16 @@ z<
 
 
 
+
+
+
+
+\end{Esercizio8}
+
+\begin{Esercizio9}
+
+  
+
 Si consideri l'insieme di task periodici in tabella, 
 con deadline $D_i$ minore del periodo $T_i$. 
 Si determini se l'insieme è schedulabile con 
@@ -673,7 +790,7 @@ Deadline Monotonic (DM) attraverso il test di Liu e Layland.
 Si ripeta poi il test attraverso il metodo dell'interferenza $I_i$ e 
 si discutano le differenze rispetto al test precedente, ove presenti.
 
-\begin{table}[!h]
+\begin{table}[H]
 \centering
 \caption{Dati dei task}
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -699,6 +816,7 @@ Eseguiamo per prima cosa il test di Liu e Layland per DM:
 \[\frac{2}{11} + \frac{3}{15} + \frac{1}{8} + \frac{5}{37} + \frac{2}{10} 
 = 0.841
 \ge 5 (2^{1/5} - 1) = 0.7435\]
+Il test non è superato, ma ricordiamo che esso è solo un test sufficiente.
 
 
 
@@ -708,25 +826,20 @@ L'ordine di priorità dei task è:
 \]
 
 
+
 Calcoliamo l'interferenza per ogni task:
 \[ I_{3} = 0 \]
-\[ I_{5} = \lceil \frac{D_{5}}{T_{3}} \rceil C_{3} = \lceil \frac{10}{9} \rceil  \cdot 1 = 2 \]
-\[I_{1} = \lceil \frac{D_{1}}{T_{5}} \rceil C_{5}  + \lceil \frac{D_{1}}{T_{3}} \rceil C_{3}
-= \lceil   \]
+\[ I_{5} = \left \lceil \frac{D_{5}}{T_{3}} \right \rceil C_{3} = \left \lceil \frac{10}{9} \right \rceil  \cdot 1 = 2 \]
+\[I_{1} = \left \lceil \frac{D_{1}}{T_{5}} \right \rceil C_{5}  + \left \lceil \frac{D_{1}}{T_{3}} \right \rceil C_{3}
+=    \]
 
-\[I_{2} = \lceil \frac{D_{2}}{T_{1}} \rceil C_{1} + \lceil \frac{D_{2}}{T_{5}} \rceil C_{5} 
- + \lceil \frac{D_{2}}{T_{3}} \rceil C_{3}
+\[I_{2} = \left \lceil \frac{D_{2}}{T_{1}} \right \rceil C_{1} + \left \lceil \frac{D_{2}}{T_{5}} \right \rceil C_{5} 
+ + \left \lceil \frac{D_{2}}{T_{3}} \right \rceil C_{3}
 =   \]
-\[I_{4} = \lceil \frac{D_{4}}{T_{2}} \rceil C_{2}  + 
-\lceil \frac{D_{4}}{T_{1}} \rceil C_{1} + \lceil \frac{D_{4}}{T_{5}} \rceil C_{5} 
- + \lceil \frac{D_{4}}{T_{3}} \rceil C_{3}
+\[I_{4} = \left \lceil \frac{D_{4}}{T_{2}} \right \rceil C_{2}  + 
+\left \lceil \frac{D_{4}}{T_{1}} \right \rceil C_{1} + \left \lceil \frac{D_{4}}{T_{5}} \right \rceil C_{5} 
+ + \left \lceil \frac{D_{4}}{T_{3}} \right \rceil C_{3}
 =   \]
-
-
-\end{Esercizio8}
-
-\begin{Esercizio9}
-
 
 
 \end{Esercizio9}

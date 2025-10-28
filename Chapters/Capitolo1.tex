@@ -771,11 +771,72 @@ z<
 
 \begin{Esercizio8}
 
+\begin{table}[H]
+\centering
+\caption{Dati dei task}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+ & $\tau_1$ & $\tau_2$ & $\tau_3$ & $\tau_4$ \\
+\hline
+$C_i$ & 1 & 2 & 2 & 4 \\
+\hline
+$T_i$ & 8 & 11 & 8 & 16 \\
+\hline
+$D_i$ & 7 & 9 & 6 & 14 \\
+\hline
+\end{tabular}
+\label{tab:tasks_dm}
+\end{table}
+
+Dato l'insieme di task periodici rappresentato in tabella, si determini se l'insieme 
+è schedulabile con Deadline Monotonic (DM) utilizzando il test di Liu e Layland.
+Si ripeta poi il test con il metodo del Response Time Analysis e si discutano le
+differenze nei risultati ottenuti, ove presenti.\\
 
 
+Eseguiamo per prima cosa il test di Liu e Layland per DM:
+\[
+\sum_{i=1}^{n} \frac{C_{i}}{D_{i}} \le n (2^{1/n} - 1)
+\]
 
+Che mettendo i numeri diventa:
+\[\frac{1}{7} + \frac{2}{9} + \frac{2}{6} + \frac{4}{14} \]
 
+L'ordine di priorità dei task per DM (deadline crescente) è:
+\[ \tau_{3} > \tau_{1} > \tau_{2} > \tau_{4} \]
+Dunque andiamo ad effettuare il Response Time Analysis per ogni task:
 
+\[ R_{3}^{(0)} = C_{3} = 2 \le  D_{2} = 9\]
+\[R_{1}^{(0)} = C_{1} + C_{3} = 1 +2 = 3 \]
+\[R_{1}^{(1)} = C_{1} + \left \lceil \frac{R_{1}^{(0)}}{T_{3}} \right \rceil C_{3} = 1 + 2 
+\left \lceil \frac{3}{8} \right \rceil = 3 \]
+Dunque si ha \(R_{1}^{0} = R_{1}^{1} = 3 \le D_{1} = 7\).
+\[R_{2}^{(0)} = C_{2} + C_{1} + C_{3} = 2 + 1 + 2 = 5 \]
+\[R_{2}^{(1)} = C_{2} + \left \lceil \frac{R_{2}^{(0)}}{T_{1}} \right \rceil C_{1} +
+ \left \lceil \frac{R_{2}^{(0)}}{T_{3}} \right \rceil C_{3}
+= 2 + \left \lceil \frac{5}{8} \right \rceil 1 + \left \lceil \frac{5}{8} \right \rceil 2 = 2 + 1 + 2 = 5 \]
+Dunque si ha \(R_{2}^{0} = R_{2}^{1} = 5 \le D_{2} = 9\).
+\[R_{4}^{(0)} = C_{4} + C_{2} + C_{1} + C_{3} = 4 + 2 + 1 + 2 = 9 \]
+\[R_{4}^{(1)} = C_{4} + \left \lceil  \frac{R_{4}^{(0)}}{T_{2}} \right \rceil C_{2} +
+ \left \lceil \frac{R_{4}^{(0)}}{T_{1}} \right \rceil C_{1} +
+ \left \lceil \frac{R_{4}^{(0)}}{T_{3}} \right \rceil C_{3} = 
+ 4 + \left \lceil  \frac{9}{11} \right \rceil 2 
+ + \left \lceil \frac{9}{8} \right \rceil 1 + \left \lceil \frac{9}{8} \right \rceil 2
+  = 4 + 2 + 2 + 4 = 12 \]
+\[R_{4}^{(2)} = C_{4} + \left \lceil  \frac{R_{4}^{(1)}}{T_{2}} \right \rceil C_{2} +
+ \left \lceil \frac{R_{4}^{(1)}}{T_{1}} \right \rceil C_{1} +
+ \left \lceil \frac{R_{4}^{(1)}}{T_{3}} \right \rceil C_{3} = 
+ 4 + \left \lceil  \frac{12}{11} \right \rceil 2 
+ + \left \lceil \frac{12}{8} \right \rceil 1 + \left \lceil \frac{12}{8} \right \rceil 2
+  = 4 + 4 + 2 + 4 = 14 \]
+\[R_{4}^{(3)} = C_{4} + \left \lceil  \frac{R_{4}^{(2)}}{T_{2}} \right \rceil C_{2} +
+ \left \lceil \frac{R_{4}^{(2)}}{T_{1}} \right \rceil C_{1} +
+ \left \lceil \frac{R_{4}^{(2)}}{T_{3}} \right \rceil C_{3} = 
+ 4 + \left \lceil  \frac{14}{11} \right \rceil 2 
+ + \left \lceil \frac{14}{8} \right \rceil 1 + \left \lceil \frac{14}{8} \right \rceil 2
+  = 4 + 4 + 2 + 4 = 14 \]
+
+Dunque si ha \(R_{4}^{2} = R_{4}^{3} = 14 \le D_{4} = 14\).
 
 \end{Esercizio8}
 
